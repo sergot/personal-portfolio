@@ -1,6 +1,6 @@
 {
   "name": "sergot-com",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,10 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pdf": "tsx src/scripts/generate-pdf.ts"
+    "prebuild": "tsx scripts/generate-pdf.ts",
+    "pdf": "tsx scripts/generate-pdf.ts"
   },
   "dependencies": {
-    "@formspree/react": "^2.5.3",
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.4.7",
     "next": "15.2.0",

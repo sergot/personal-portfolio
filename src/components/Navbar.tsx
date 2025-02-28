@@ -5,19 +5,29 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { HiMenu, HiX, HiMoon, HiSun } from 'react-icons/hi';
 import { useTheme } from 'next-themes';
+import { personal } from '@/data/personal';
+
+// Create a filename-friendly version of the user's name
+const resumeFileName = personal.name.toLowerCase().replace(/\s+/g, '-');
 
 const navLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Resume', href: 'https://drive.google.com/your-resume-url', target: '_blank' },
+  { name: 'Resume', href: `/${resumeFileName}-resume.pdf`, target: '_blank' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  // Get initials from personal name
+  const initials = personal.name
+    .split(' ')
+    .map(name => name[0])
+    .join('');
 
   useEffect(() => {
     setMounted(true);
@@ -34,7 +44,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">FS</span>
+              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">{initials}</span>
             </Link>
           </div>
         </div>
@@ -60,7 +70,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">FS</span>
+            <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">{initials}</span>
           </Link>
 
           {/* Desktop Navigation */}

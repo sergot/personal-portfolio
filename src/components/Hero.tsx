@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
+import { personal } from '@/data/personal';
 
 class Particle {
   x: number;
@@ -76,7 +77,7 @@ export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   const spawnSpecialParticles = (x: number, y: number) => {
     const numParticles = 2; // Reduced to just 2 particles per click
@@ -209,7 +210,7 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="text-5xl md:text-6xl font-bold"
             >
-              Hi, I'm Filip
+              Hi, I'm {personal.name.split(' ')[0]}
             </motion.h1>
           </div>
           <motion.p
@@ -218,7 +219,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
           >
-            Senior Software Developer
+            {personal.title}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

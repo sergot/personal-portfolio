@@ -29,7 +29,7 @@ export const jobs: Job[] = [
   {
     id: 'job2',
     title: 'Senior Software Developer',
-    company: 'Żabka NANO',
+    company: 'Zabka NANO',
     location: 'remote, Poland',
     type: 'Full-time',
     startDate: '2023',

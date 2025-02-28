@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
-import { useForm, ValidationError } from '@formspree/react';
+import { personal } from '@/data/personal';
 
 interface ValidationErrors {
   name?: string;
@@ -12,7 +12,8 @@ interface ValidationErrors {
 }
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm("xqaerkyv");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -98,20 +99,49 @@ export default function Contact() {
     return isValid;
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    if (validateForm()) {
-      handleSubmit(e);
-      if (state.succeeded) {
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Use environment variable for Formspree ID
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+      
+      if (!formspreeId) {
+        throw new Error('Formspree ID not configured');
+      }
+
+      // Construct the full Formspree endpoint URL using the ID
+      const formspreeEndpoint = `https://formspree.io/f/${formspreeId}`;
+
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setValidationErrors({});
         setTouched({ name: false, email: false, message: false });
+      } else {
+        throw new Error('Failed to send message');
       }
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  if (state.succeeded) {
+  if (isSubmitted) {
     return (
       <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +156,7 @@ export default function Contact() {
               Your message has been sent successfully. I'll get back to you soon!
             </p>
             <button
-              onClick={() => window.location.reload()}
+              onClick={() => setIsSubmitted(false)}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition-colors"
             >
               Send Another Message
@@ -161,7 +191,7 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-6">Contact Form</h3>
-            <form onSubmit={onSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -189,7 +219,6 @@ export default function Contact() {
                     {validationErrors.name}
                   </p>
                 )}
-                <ValidationError prefix="Name" field="name" errors={state.errors} />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
@@ -218,7 +247,6 @@ export default function Contact() {
                     {validationErrors.email}
                   </p>
                 )}
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
@@ -247,16 +275,14 @@ export default function Contact() {
                     {validationErrors.message}
                   </p>
                 )}
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
               <button
                 type="submit"
-                disabled={state.submitting || Object.keys(validationErrors).length > 0}
+                disabled={isSubmitting || Object.keys(validationErrors).length > 0}
                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {state.submitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
-              <ValidationError errors={state.errors} />
             </form>
           </motion.div>
 
@@ -274,7 +300,7 @@ export default function Contact() {
               </p>
               <div className="flex space-x-6">
                 <a
-                  href="https://github.com/sergot"
+                  href={personal.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
@@ -282,7 +308,7 @@ export default function Contact() {
                   <SiGithub className="w-8 h-8" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/filipsergot"
+                  href={personal.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
@@ -293,16 +319,16 @@ export default function Contact() {
               <div className="mt-8">
                 <h4 className="text-lg font-semibold mb-4">Location</h4>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Poland
+                  {personal.location}
                 </p>
               </div>
               <div className="mt-8">
                 <h4 className="text-lg font-semibold mb-4">Email</h4>
                 <a
-                  href="mailto:filip.sergot@gmail.com"
+                  href={`mailto:${personal.email}`}
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
-                  filip.sergot@gmail.com
+                  {personal.email}
                 </a>
               </div>
             </div>
