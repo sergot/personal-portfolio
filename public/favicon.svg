@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path { stroke: #2563eb; }
+    rect { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      path { stroke: #60a5fa; }
+      rect { fill: #60a5fa; }
+    }
+  </style>
+  <rect x="4" y="4" width="40" height="40" rx="8" opacity="0.1"/>
+  <path d="M16 18L20 30M24 14L28 26M32 18L28 30" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 34H34" stroke-width="2.5" stroke-linecap="round"/>
+</svg> 
