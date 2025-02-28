@@ -20,6 +20,13 @@ import {
   SiGo,
   SiGooglecloud,
   SiVuedotjs,
+  SiRedis,
+  SiElasticsearch,
+  SiApachekafka,
+  SiJirasoftware,
+  SiTestinglibrary,
+  SiDiagramsdotnet,
+  SiGithubactions,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 import { GiCamel } from "react-icons/gi";
@@ -43,6 +50,13 @@ const iconComponents = {
   SiGooglecloud,
   SiVuedotjs,
   VscAzure,
+  SiRedis,
+  SiElasticsearch,
+  SiApachekafka,
+  SiJirasoftware,
+  SiTestinglibrary,
+  SiDiagramsdotnet,
+  SiGithubactions,
 };
 
 export default function Skills() {
@@ -58,8 +72,7 @@ export default function Skills() {
   };
 
   const isExpandable = (skill: (typeof skills)[0]) => {
-    return skill.category === 'Backend' || 
-           (skill.category === 'DevOps' && ['Docker', 'Kubernetes', 'Git'].includes(skill.name));
+    return skill.frameworks && skill.frameworks.length > 0;
   };
 
   const renderFrameworks = (skill: (typeof skills)[0], skillId: string) => {

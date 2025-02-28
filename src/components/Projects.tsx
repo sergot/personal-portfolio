@@ -32,7 +32,7 @@ export default function Projects() {
           >
             <div className="relative h-48 overflow-hidden">
               <img
-                src={getProjectImage(project.image)}
+                src={getProjectImage(project.image || '/placeholder.png')}
                 alt={project.title}
                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
               />

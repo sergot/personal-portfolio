@@ -1,4 +1,4 @@
-export type SkillCategory = 'Frontend' | 'Backend' | 'DevOps' | 'Database';
+export type SkillCategory = 'Frontend' | 'Backend' | 'DevOps & Cloud' | 'Databases & Data' | 'Tools & Methodologies';
 
 interface Skill {
   name: string;
@@ -7,9 +7,27 @@ interface Skill {
   frameworks: string[];
 }
 
-export const categories: SkillCategory[] = ['Backend', 'DevOps', 'Database', 'Frontend'];
+export const categories: SkillCategory[] = ['Backend', 'DevOps & Cloud', 'Databases & Data', 'Frontend', 'Tools & Methodologies'];
 
 export const skills: Skill[] = [
+  {
+    name: 'Python',
+    icon: 'SiPython',
+    category: 'Backend',
+    frameworks: ['FastAPI', 'Django', 'Flask', 'SQLAlchemy', 'Pytest', 'MyPy', 'Asyncio', 'Pydantic']
+  },
+  {
+    name: 'Go',
+    icon: 'SiGo',
+    category: 'Backend',
+    frameworks: ['Gin', 'Echo', 'GORM', 'Testify', 'Ent', 'Generics']
+  },
+  {
+    name: 'Perl',
+    icon: 'GiCamel',
+    category: 'Backend',
+    frameworks: ['Mojolicious', 'Dancer', 'DBI', 'Moose', 'Raku', 'OTRS', 'CPAN']
+  },
   {
     name: 'React',
     icon: 'SiReact',
@@ -35,75 +53,99 @@ export const skills: Skill[] = [
     frameworks: []
   },
   {
-    name: 'Python',
-    icon: 'SiPython',
-    category: 'Backend',
-    frameworks: ['FastAPI', 'Django', 'Flask', 'SQLAlchemy', 'Pytest', 'Pandas']
-  },
-  {
-    name: 'Go',
-    icon: 'SiGo',
-    category: 'Backend',
-    frameworks: ['Gin', 'Echo', 'GORM', 'Testify', 'Ent', 'Generics']
-  },
-  {
-    name: 'Perl',
-    icon: 'GiCamel',
-    category: 'Backend',
-    frameworks: ['Mojolicious', 'Dancer', 'DBI', 'Moose', 'Raku', 'OTRS', 'CPAN']
-  },
-  {
     name: 'Docker',
     icon: 'SiDocker',
-    category: 'DevOps',
-    frameworks: ['Docker Compose', 'Docker Operator']
+    category: 'DevOps & Cloud',
+    frameworks: []
   },
   {
     name: 'Kubernetes',
     icon: 'SiKubernetes',
-    category: 'DevOps',
-    frameworks: ['Helm', 'Prometheus', 'Grafana', 'kubectl']
+    category: 'DevOps & Cloud',
+    frameworks: ['Helm', 'Prometheus', 'Grafana', 'kubectl', 'Operators']
   },
   {
     name: 'AWS',
     icon: 'SiAmazon',
-    category: 'DevOps',
+    category: 'DevOps & Cloud',
     frameworks: []
   },
   {
     name: 'Azure',
     icon: 'VscAzure',
-    category: 'DevOps',
+    category: 'DevOps & Cloud',
     frameworks: []
   },
   {
     name: 'Google Cloud',
     icon: 'SiGooglecloud',
-    category: 'DevOps',
+    category: 'DevOps & Cloud',
     frameworks: []
   },
   {
-    name: 'Git',
-    icon: 'SiGit',
-    category: 'DevOps',
-    frameworks: ['GitHub', 'Bitbucket', 'GitLab']
+    name: 'CI/CD',
+    icon: 'SiGithubactions',
+    category: 'DevOps & Cloud',
+    frameworks: ['GitHub Actions', 'Jenkins', 'CircleCI']
   },
   {
     name: 'PostgreSQL',
     icon: 'SiPostgresql',
-    category: 'Database',
+    category: 'Databases & Data',
     frameworks: []
   },
   {
     name: 'MongoDB',
     icon: 'SiMongodb',
-    category: 'Database',
+    category: 'Databases & Data',
     frameworks: []
   },
   {
     name: 'MySQL',
     icon: 'SiMysql',
-    category: 'Database',
+    category: 'Databases & Data',
     frameworks: []
+  },
+  {
+    name: 'Redis',
+    icon: 'SiRedis',
+    category: 'Databases & Data',
+    frameworks: []
+  },
+  {
+    name: 'Elasticsearch',
+    icon: 'SiElasticsearch',
+    category: 'Databases & Data',
+    frameworks: []
+  },
+  {
+    name: 'Apache Kafka',
+    icon: 'SiApachekafka',
+    category: 'Databases & Data',
+    frameworks: []
+  },
+  {
+    name: 'Git',
+    icon: 'SiGit',
+    category: 'Tools & Methodologies',
+    frameworks: ['GitHub', 'Bitbucket', 'GitLab']
+  },
+  {
+    name: 'Agile',
+    icon: 'SiJirasoftware',
+    category: 'Tools & Methodologies',
+    frameworks: []
+  },
+  {
+    name: 'Testing',
+    icon: 'SiTestinglibrary',
+    category: 'Tools & Methodologies',
+    frameworks: ['Unit Testing', 'Integration Testing', 'E2E Testing', 'TDD', 'BDD', 'Mocking']
+  },
+  {
+    name: 'System Design',
+    icon: 'SiDiagramsdotnet',
+    category: 'Tools & Methodologies',
+    frameworks: ['Architecture Patterns', 'Scalability', 'High Availability', 'Fault Tolerance', 'Performance Optimization']
   }
 ]; 
