@@ -8,8 +8,8 @@ import { ThemeProvider } from 'next-themes';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Filip Sergot - Software Engineer",
-  description: "Personal portfolio website of Filip Sergot, a Software Engineer",
+  title: "Filip Sergot - Senior Software Engineer",
+  description: "Personal portfolio website of Filip Sergot, a Senior Software Engineer",
   icons: {
     icon: [
       {
