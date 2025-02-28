@@ -11,7 +11,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - 🎭 Smooth animations using Framer Motion
 - 🧩 Interactive components
 - 📝 Contact form with Formspree integration
-- 🎯 SEO friendly
+- 🎯 SEO friendly with automatic sitemap generation
 - 📄 Automatic PDF resume generation
 - 🌐 Easy deployment to Vercel
 
@@ -24,6 +24,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - React Icons
 - PDFKit (for resume generation)
 - Formspree (for contact form)
+- next-sitemap (for SEO and sitemap generation)
 
 ## Getting Started
 
@@ -57,6 +58,9 @@ The application uses environment variables for configuration. Create a `.env.loc
 ```
 # Formspree ID for contact form
 NEXT_PUBLIC_FORMSPREE_ID=your-form-id
+
+# Your website URL (for sitemap generation)
+SITE_URL=https://sergot.pl
 ```
 
 ### Required Environment Variables
@@ -64,6 +68,7 @@ NEXT_PUBLIC_FORMSPREE_ID=your-form-id
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `NEXT_PUBLIC_FORMSPREE_ID` | Your Formspree form ID (not the full URL) | `abcdefgh` |
+| `SITE_URL` | Your website URL for sitemap generation | `https://sergot.pl` |
 
 ## Customization
 
@@ -114,6 +119,7 @@ The contact form is integrated with Formspree:
 
 ```
 scripts/              # Utility scripts (PDF generation)
+next-sitemap.config.js # Sitemap generation configuration
 src/
 ├── app/                 # Next.js app directory
 ├── components/          # React components
@@ -139,9 +145,10 @@ Alternative deployment options:
 ## Scripts
 
 - `npm run dev` - Start development server
-- `npm run build` - Build for production
+- `npm run build` - Build for production (automatically generates sitemap)
 - `npm run start` - Start production server
-- `npm run generate-pdf` - Generate PDF resume
+- `npm run pdf` - Generate PDF resume
+- `npm run sitemap` - Generate sitemap manually
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript checks
 
