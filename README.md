@@ -161,7 +161,7 @@ Alternative deployment options:
 
 ## License
 
-MIT License - feel free to use this template for your own portfolio!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
