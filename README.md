@@ -12,8 +12,8 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - 🧩 Interactive components
 - 📝 Contact form with Formspree integration
 - 🎯 SEO friendly with automatic sitemap generation
-- 📄 Automatic PDF resume generation
-- 🌐 Easy deployment to Vercel
+- 📄 Automatic PDF resume generation with customizable data
+- 🚀 Easy deployment to Vercel
 
 ## Tech Stack
 
@@ -22,7 +22,8 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - Tailwind CSS
 - Framer Motion
 - React Icons
-- PDFKit (for resume generation)
+- Puppeteer (for PDF resume generation)
+- Font Awesome (for PDF icons)
 - Formspree (for contact form)
 - next-sitemap (for SEO and sitemap generation)
 
@@ -95,11 +96,17 @@ The website uses Tailwind CSS for styling with dark mode support:
 The site includes automatic PDF resume generation:
 
 1. Update the template in `scripts/generate-pdf.ts`
-2. Generate a new PDF:
+2. Customize the data in the data files:
+   - Personal information (including website URL) in `src/data/personal.ts`
+   - Experience details in `src/data/jobs.ts`
+   - Skills and categories in `src/data/skills.ts`
+   - Projects (including GitHub links) in `src/data/projects.ts`
+3. Generate a new PDF:
    ```bash
    npm run pdf
    ```
-3. The PDF will be saved to `public/filip-sergot-resume.pdf`
+4. The PDF will be saved to `public/your-name-resume.pdf`
+
 
 ### Contact Form
 
