@@ -29,6 +29,9 @@ export default function Contact() {
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
       case 'name':
+        if (!value.trim()) {
+          return 'Name is required';
+        }
         if (value.trim().length < 2) {
           return 'Name must be at least 2 characters long';
         }
@@ -37,12 +40,18 @@ export default function Contact() {
         }
         break;
       case 'email':
+        if (!value.trim()) {
+          return 'Email is required';
+        }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
           return 'Please enter a valid email address';
         }
         break;
       case 'message':
+        if (!value.trim()) {
+          return 'Message is required';
+        }
         if (value.trim().length < 10) {
           return 'Message must be at least 10 characters long';
         }
@@ -58,13 +67,12 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
-    if (touched[name as keyof typeof touched]) {
-      const error = validateField(name, value);
-      setValidationErrors(prev => ({
-        ...prev,
-        [name]: error
-      }));
-    }
+    // Always validate on change, not just when touched
+    const error = validateField(name, value);
+    setValidationErrors(prev => ({
+      ...prev,
+      [name]: error // This will be undefined if there's no error
+    }));
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -81,15 +89,20 @@ export default function Contact() {
     const errors: ValidationErrors = {};
     let isValid = true;
 
+    // Validate each field
     Object.keys(formData).forEach(key => {
-      const error = validateField(key, formData[key as keyof typeof formData]);
+      const fieldKey = key as keyof typeof formData;
+      const error = validateField(key, formData[fieldKey]);
       if (error) {
-        errors[key as keyof ValidationErrors] = error;
+        errors[fieldKey as keyof ValidationErrors] = error;
         isValid = false;
       }
     });
 
+    // Only set validation errors if there are any
     setValidationErrors(errors);
+    
+    // Mark all fields as touched
     setTouched({
       name: true,
       email: true,
@@ -278,7 +291,10 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                disabled={isSubmitting || Object.keys(validationErrors).length > 0}
+                disabled={
+                  isSubmitting || 
+                  Object.values(validationErrors).some(error => error !== undefined)
+                }
                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
