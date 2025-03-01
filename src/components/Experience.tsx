@@ -16,7 +16,7 @@ export default function Experience() {
     setExpandedMobileJob(expandedMobileJob === jobId ? null : jobId);
   };
 
-  const renderMobileJob = (job: typeof jobs[0], index: number) => {
+  const renderMobileJob = (job: typeof jobs[0]) => {
     const isExpanded = expandedMobileJob === job.id;
 
     return (
@@ -167,7 +167,7 @@ export default function Experience() {
 
       {/* Mobile View */}
       <div className="md:hidden space-y-4">
-        {jobs.map((job, index) => renderMobileJob(job, index))}
+        {jobs.map((job) => renderMobileJob(job))}
       </div>
     </Section>
   );

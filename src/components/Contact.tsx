@@ -166,7 +166,7 @@ export default function Contact() {
           >
             <h2 className="text-4xl font-bold mb-4">Thank You!</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Your message has been sent successfully. I'll get back to you soon!
+              Your message has been sent successfully. I&apos;ll get back to you soon!
             </p>
             <button
               onClick={() => setIsSubmitted(false)}

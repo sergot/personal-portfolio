@@ -7,6 +7,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { projects } from '@/data/projects';
 import Section from './shared/Section';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 export default function Projects() {
   const { theme } = useTheme();
@@ -31,10 +32,12 @@ export default function Projects() {
             className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
           >
             <div className="relative h-48 overflow-hidden">
-              <img
+              <Image
                 src={getProjectImage(project.image || '/placeholder.png')}
                 alt={project.title}
-                className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transform hover:scale-110 transition-transform duration-500"
               />
             </div>
             <div className="p-6">

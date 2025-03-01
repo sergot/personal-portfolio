@@ -24,7 +24,6 @@ class Particle {
     
     if (isSpecial) {
       this.radius = Math.random() * 1.5 + 1.5; // Slightly larger than regular (1.5-3px)
-      const hue = Math.floor(Math.random() * 30) + 200; // Closer to regular blue
       this.baseColor = `rgba(66, 153, 225, ${0.4 + (this.radius - 1.5) * 0.1})`; // Similar to regular particles
     } else {
       this.radius = Math.random() * 2 + 1; // Regular particles (1-3px)
@@ -210,7 +209,7 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="text-5xl md:text-6xl font-bold"
             >
-              Hi, I'm {personal.name.split(' ')[0]}
+              Hi, I&apos;m {personal.name.split(' ')[0]}
             </motion.h1>
           </div>
           <motion.p
