@@ -4,12 +4,24 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import GithubCorner from "@/components/GithubCorner";
 import { ThemeProvider } from 'next-themes';
+import { personal } from "@/data/personal";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Filip Sergot - Senior Software Engineer",
-  description: "Personal portfolio website of Filip Sergot, a Senior Software Engineer",
+  title: `${personal.name} - ${personal.title}`,
+  description: `Personal portfolio website of ${personal.name}, a ${personal.title}.`,
+  authors: [{ name: personal.name, url: personal.website }],
+  creator: personal.name,
+  keywords: ["software engineer", "web developer", "developer portfolio", "frontend", "backend", "DevOps", personal.name.split(' ')[0], personal.name.split(' ')[1]],
+  openGraph: {
+    title: `${personal.name} - ${personal.title}`,
+    description: personal.summary,
+    url: personal.website,
+    siteName: `${personal.name} - Portfolio`,
+    locale: 'en_US',
+    type: 'website',
+  },
   icons: {
     icon: [
       {

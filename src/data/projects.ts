@@ -15,10 +15,17 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sergot/http-useragent'
   },
   {
+    title: 'Fiendlist',
+    description: 'Social platform for the MMO game Tibia that streamlines team organization through shareable participation lists. Features secure authentication via Discord and Google, anonymous user accounts, and a responsive interface built with Go backend and React frontend. Designed to enhance player coordination for in-game events and activities.',
+    technologies: ['Go', 'MongoDB', 'React', 'TypeScript'],
+    githubUrl: 'https://github.com/sergot/fiendlist',
+    liveUrl: 'https://fiendlist.com'
+  },
+  {
     title: 'Personal Portfolio Website',
     description: 'Designed and developed a modern, responsive portfolio website with dark mode support, smooth animations, and automated PDF resume generation. Features server-side rendering, optimized performance, and comprehensive SEO.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Puppeteer'],
     githubUrl: 'https://github.com/sergot/sergot-com',
     liveUrl: 'https://sergot.pl'
   }
-]; 
+];

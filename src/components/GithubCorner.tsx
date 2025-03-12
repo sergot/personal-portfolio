@@ -13,4 +13,4 @@ export default function GithubCorner() {
       <FaGithub className="w-6 h-6" />
     </Link>
   );
-} 
+}
