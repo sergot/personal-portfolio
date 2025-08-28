@@ -306,7 +306,7 @@ async function generatePDF(): Promise<void> {
 
             <div class="section">
               <h2>Skills</h2>
-              ${categories.map((category, index) => `
+              ${categories.map((category) => `
                 <div class="skills-category">
                   <h3>${category}</h3>
                   <ul>
@@ -349,7 +349,7 @@ async function generatePDF(): Promise<void> {
           <div class="right-column">
             <div class="section">
               <h2>Experience</h2>
-              ${jobs.map((job, index) => `
+              ${jobs.map((job) => `
                 <div class="job">
                   <h3>${job.company}</h3>
                   <p class="job-title">${job.title}</p>
@@ -392,6 +392,9 @@ async function generatePDF(): Promise<void> {
               </div>
             ` : ''}
           </div>
+        </div>
+        <div style="position: relative; font-size: 8px; color: #6b7280; text-align: center; margin: 1rem 1rem 0.5rem 1rem; padding-top: 0.5rem; border-top: 1px solid #e5e7eb; line-height:1.3;">
+          I consent to the processing of my personal data contained in this CV for the purposes of the current and future recruitment processes for a period of up to 24 months. I understand that I may withdraw my consent at any time.
         </div>
       </body>
     </html>
