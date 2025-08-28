@@ -20,12 +20,13 @@ export const jobs: Job[] = [
     startDate: '2024',
     endDate: 'Present',
     description: [
-      'Architecting and implementing alert automation systems for Adobe Experience Manager as a Cloud Service',
-      'Developing and optimizing stress testing automation frameworks, identifying performance bottlenecks before production deployment',
-      'Collaborating with cross-functional teams to implement SRE best practices and enhance system reliability across cloud environments',
-      'Designing and implementing monitoring dashboards with Grafana and Prometheus that provide real-time visibility into system performance'
+  'Designed and implemented alert automation for Adobe Experience Manager (Cloud Service) reducing manual intervention',
+  'Designed and implemented a fully functional, dynamic application load & stress testing framework in Kubernetes using Helm',
+  'Engineered and optimized performance testing pipelines, identifying bottlenecks pre-production',
+  'Drove adoption of SRE best practices across teams, improving reliability and MTTR',
+  'Built real-time observability dashboards in Grafana/Prometheus exposing actionable SLO metrics'
     ],
-    technologies: ['Python', 'Grafana', 'Prometheus', 'Helm', 'Docker', 'Kubernetes', 'Go', 'Azure']
+    technologies: ['Python', 'Azure', 'Grafana', 'Prometheus', 'Helm', 'Docker', 'Kubernetes', 'Go']
   },
   {
     id: 'job2',
@@ -36,11 +37,11 @@ export const jobs: Job[] = [
     startDate: '2023',
     endDate: '2024',
     description: [
-      'Development for Poland\'s first autonomous convenience store network (https://zabkagroup.com/convenience/nano/), enabling 24/7 shopping experiences without staff',
-      'Designed and implemented core microservices architecture using FastAPI',
-      'Engineered fault-tolerant systems with 99.9% uptime through comprehensive error handling, automated recovery processes, and proactive monitoring',
-      'Streamlined CI/CD pipelines in CircleCI and Azure DevOps, enabling 3x more frequent releases',
-      'Served as on-call engineer, resolving critical production issues'
+      'Built Poland\'s first autonomous convenience store network (https://zabkagroup.com/convenience/nano/) enabling 24/7 staffless shopping',
+      'Architected core FastAPI microservices powering real-time store operations',
+      'Engineered fault-tolerant services achieving 99.9% uptime via recovery automation & proactive monitoring',
+      'Optimized CI/CD in CircleCI & Azure DevOps delivering 3x more frequent, reliable releases',
+      'Handled production on-call, rapidly resolving critical incidents'
     ],
     technologies: ['Python', 'FastAPI', 'Kubernetes', 'Azure', 'CircleCI', 'Microservices']
   },
@@ -53,11 +54,11 @@ export const jobs: Job[] = [
     startDate: '2022',
     endDate: '2022',
     description: [
-      'Developed high-throughput microservices for a scientific marketplace platform using Apache Kafka and FastAPI',
-      'Refactored legacy Django application and migrated to FastAPI and Spring microservices',
-      'Created and deployed a sophisticated data extraction system using Python/Scrapy that automated collection product listings from supplier websites',
-      'Implemented comprehensive test suites achieving 90%+ code coverage, significantly reducing production bugs',
-      'Optimized GitHub Actions workflows, enabling continuous deployment'
+      'Developed high-throughput marketplace microservices with Apache Kafka & FastAPI',
+      'Refactored legacy Django monolith, incrementally migrating to FastAPI & Spring microservices',
+      'Built scalable Python/Scrapy data extraction system automating supplier product ingestion',
+      'Implemented test suites reaching 90%+ coverage, reducing production defects',
+      'Streamlined GitHub Actions workflows enabling continuous deployment'
     ],
     technologies: ['Python', 'Django', 'FastAPI', 'Git', 'GCP', 'Apache Kafka', 'Scrapy', 'GitHub Actions']
   },
@@ -70,10 +71,10 @@ export const jobs: Job[] = [
     startDate: '2018',
     endDate: '2022',
     description: [
-      'Led development of a strategic UK government job-search platform, collaborating directly with government stakeholders',
-      'Architected and implemented a high-performance job matching algorithm that improved search relevance by 65% and increased user engagement by 40%',
-      'Designed scalable data processing pipelines handling job listings across multiple regions',
-      'Established robust CI/CD processes in Jenkins that enabled multiple daily releases'
+      'Led delivery of strategic UK government job-search platform with direct stakeholder collaboration',
+      'Architected high-performance job matching algorithm improving relevance 65% and engagement 40%',
+      'Designed scalable multi-region data ingestion & processing pipelines',
+      'Implemented robust Jenkins CI/CD enabling multiple daily releases'
     ],
     technologies: ['Perl', 'AWS', 'Solr', 'MongoDB', 'PostgreSQL', 'Python', 'Jenkins']
   },
@@ -86,10 +87,10 @@ export const jobs: Job[] = [
     startDate: '2016',
     endDate: '2018',
     description: [
-      'Developed custom enterprise solutions for OTRS (Open Ticket Request System) that improved ticket resolution time by 35%',
-      'Designed and implemented RESTful APIs that facilitated seamless integration with 10+ external systems and services',
-      'Optimized database queries and application performance',
-      'Refactored legacy codebase, reducing technical debt by 40% and improving maintainability'
+      'Delivered custom OTRS enterprise extensions improving ticket resolution time 35%',
+      'Designed RESTful APIs integrating 10+ external systems',
+      'Optimized database queries improving application responsiveness',
+      'Refactored legacy codebase reducing technical debt 40% and boosting maintainability'
     ],
     technologies: ['Perl', 'Solr', 'Dancer', 'MySQL', 'REST API', 'JavaScript', 'OTRS']
   },
@@ -102,11 +103,11 @@ export const jobs: Job[] = [
     startDate: '2014',
     endDate: '2016',
     description: [
-      'Contributed to Poland\'s largest e-commerce platform',
-      'Developed responsive UI components using React',
-      'Engineered high-performance backend microservices',
-      'Created an internal customer support platform using Java and Vue.js that reduced ticket resolution time by 40%',
-      'Participated in system architecture design sessions and implemented scalable solutions for business-critical features'
+      'Contributed to Poland\'s largest e-commerce platform at scale',
+      'Developed responsive React UI components elevating user experience',
+      'Engineered high-performance backend microservices supporting growth',
+      'Built internal Java/Vue.js support platform reducing ticket resolution time 40%',
+      'Collaborated in architecture sessions delivering scalable, business-critical features'
     ],
     technologies: ['Java', 'Vue.js', 'React', 'Perl', 'MongoDB', 'MySQL', 'Python', 'Microservices']
   }
