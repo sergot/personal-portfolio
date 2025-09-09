@@ -20,8 +20,8 @@ export const jobs: Job[] = [
     startDate: '2024',
     endDate: 'Present',
     description: [
+  'Designed and implemented a fully functional, dynamic application load & stress testing framework in Kubernetes using Helm with AI-powered report generation and optimization suggestions',
   'Designed and implemented alert automation for Adobe Experience Manager (Cloud Service) reducing manual intervention',
-  'Designed and implemented a fully functional, dynamic application load & stress testing framework in Kubernetes using Helm',
   'Engineered and optimized performance testing pipelines, identifying bottlenecks pre-production',
   'Drove adoption of SRE best practices across teams, improving reliability and MTTR',
   'Built real-time observability dashboards in Grafana/Prometheus exposing actionable SLO metrics'
