@@ -72,7 +72,6 @@ export const jobs: Job[] = [
     endDate: '2022',
     description: [
       'Led delivery of strategic UK government job-search platform with direct stakeholder collaboration',
-      'Architected high-performance job matching algorithm improving relevance 65% and engagement 40%',
       'Designed scalable multi-region data ingestion & processing pipelines',
       'Implemented robust Jenkins CI/CD enabling multiple daily releases'
     ],
